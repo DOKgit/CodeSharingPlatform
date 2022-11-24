@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head><link rel="stylesheet"
+            href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.2.1/build/styles/default.min.css">
+  <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.2.1/build/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script></head>
+<title>Latest</title>
+<table>
+  <thead>
+  </thead>
+  <tbody>
+  <tr th:if="${codes.empty}">
+    <td colspan="2"> No Codes Available </td>
+  </tr>
+  <tr th:each="code : ${codes}">
+    <pre> <code id="code_snippet" th:object="${code}" th:text="${code.code}"></code></pre>
+    <span id="load_date" th:object="${code}" th:text="${code.date}"></span>
+  </tr>
+  </tbody>
+</table>
